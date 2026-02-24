@@ -1,0 +1,37 @@
+{
+  "name": "Nexus POS",
+  "short_name": "NexusPOS",
+  "description": "Offline-first Point of Sale system for multi-branch retail",
+  "start_url": "/pos",
+  "display": "standalone",
+  "background_color": "#07070f",
+  "theme_color": "#7c3aed",
+  "orientation": "landscape-primary",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "POS Terminal",
+      "url": "/pos",
+      "description": "Open cashier interface"
+    },
+    {
+      "name": "Orders",
+      "url": "/orders",
+      "description": "View recent orders"
+    }
+  ]
+}

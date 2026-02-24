@@ -1,0 +1,60 @@
+# Node / Frontend
+node_modules/
+.next/
+out/
+dist/
+build/
+.npm
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.local
+.env.production.local
+.env.development.local
+.env.test.local
+
+# Laravel / PHP
+/backend/vendor/
+/backend/bootstrap/cache/*.php
+/backend/storage/app/*
+!/backend/storage/app/.gitkeep
+/backend/storage/framework/cache/data/*
+!/backend/storage/framework/cache/data/.gitkeep
+/backend/storage/framework/sessions/*
+!/backend/storage/framework/sessions/.gitkeep
+/backend/storage/framework/views/*
+!/backend/storage/framework/views/.gitkeep
+/backend/storage/logs/*
+!/backend/storage/logs/.gitkeep
+/backend/.phpunit.result.cache
+/backend/coverage/
+
+# Docker
+docker-compose.override.yml
+.docker/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# SSL certs
+*.pem
+*.key
+*.crt
+*.csr
+ssl/
+
+# Test artifacts
+coverage/
+.nyc_output/
+playwright-report/
+test-results/

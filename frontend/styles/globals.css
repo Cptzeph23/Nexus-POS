@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base:       #07070f;
+  --bg-card:       #0d0d1a;
+  --bg-raised:     #14141f;
+  --bg-hover:      #1e1e30;
+  --bg-active:     #1a0d30;
+
+  --border-subtle:  #14141f;
+  --border-default: #1e1e30;
+  --border-strong:  #2a2a3f;
+  --border-brand:   #7c3aed;
+
+  --text-primary:   #e8e0f8;
+  --text-secondary: #c0b8d8;
+  --text-muted:     #6b6b8a;
+  --text-disabled:  #3a3a55;
+
+  --brand-primary:  #7c3aed;
+  --brand-light:    #a78bfa;
+  --brand-lighter:  #c4b5fd;
+  --brand-dark:     #5b21b6;
+
+  --color-success:  #22c55e;
+  --color-warning:  #f59e0b;
+  --color-error:    #ef4444;
+  --color-info:     #3b82f6;
+
+  --bg-success: #0a2010;
+  --bg-warning: #1a1200;
+  --bg-error:   #1a0808;
+
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  14px;
+  --radius-xl:  20px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow: hidden;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input, textarea, [contenteditable] {
+  user-select: text;
+}
+
+::-webkit-scrollbar       { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand-primary); }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.text-money {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+}
+
+.surface {
+  background: var(--bg-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 4px var(--brand-primary); }
+  50%       { box-shadow: 0 0 14px var(--brand-primary); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-slide-in-right { animation: slideInRight 0.2s ease forwards; }
+.animate-slide-in-up    { animation: slideInUp 0.18s ease forwards; }
+.animate-fade-in        { animation: fadeIn 0.15s ease forwards; }
+.animate-pulse-glow     { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-spin           { animation: spin 0.8s linear infinite; }
+
+.pos-screen {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.pos-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media print {
+  body {
+    background: white;
+    color: black;
+    font-family: 'Courier New', monospace;
+  }
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+}
