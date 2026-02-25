@@ -1,4 +1,3 @@
-cat > artisan << 'EOF'
 #!/usr/bin/env php
 <?php
 
@@ -18,6 +17,3 @@ $status = $kernel->handle(
 $kernel->terminate($input, $status);
 
 exit($status);
-EOF
-
-chmod +x artisan
