@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('action', 50);
             $table->jsonb('before')->nullable();
             $table->jsonb('after')->nullable();
-            $table->inet('ip_address')->nullable();
+            $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();
             $table->timestamp('created_at');
             
