@@ -6,10 +6,25 @@
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
-        "laravel/framework": "^11.31",
-        "laravel/tinker": "^2.9"
-    },
+    "php": "^8.3",
+    "laravel/framework": "^11.31",
+    "laravel/tinker": "^2.9",
+
+    "laravel/octane": "^2.5",
+    "laravel/sanctum": "^4.0",
+    "laravel/reverb": "^1.0",
+    "laravel/horizon": "^5.24",
+    "laravel/telescope": "^5.0",
+
+    "spatie/laravel-permission": "^6.7",
+    "spatie/laravel-activitylog": "^4.8",
+    "spatie/laravel-query-builder": "^5.8",
+
+    "league/flysystem-aws-s3-v3": "^3.0",
+    "predis/predis": "^2.2",
+    "ramsey/uuid": "^4.7",
+    "guzzlehttp/guzzle": "^7.9"
+},
     "require-dev": {
         "fakerphp/faker": "^1.23",
         "laravel/pail": "^1.1",
