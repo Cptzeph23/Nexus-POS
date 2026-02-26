@@ -1,42 +1,29 @@
-# ---------- Base PHP Image ----------
-FROM php:8.3-fpm AS base
+# For api container
+FROM php:8.2-fpm
 
+# Install dependencies
 RUN apt-get update && apt-get install -y \
-    git curl zip unzip \
-    libpq-dev libonig-dev libzip-dev
+    unzip \
+    libzip-dev \
+    libpq-dev \
+    libonig-dev \
+    curl \
+    git \
+    && docker-php-ext-install pdo_pgsql zip
 
-RUN docker-php-ext-install \
-    pdo \
-    pdo_pgsql \
-    mbstring \
-    zip \
-    pcntl
+# Install Swoole for Octane
+RUN pecl install swoole \
+    && docker-php-ext-enable swoole
 
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+# Install Redis extension (for queue)
+RUN pecl install redis \
+    && docker-php-ext-enable redis
 
 WORKDIR /var/www
 
-
-# ---------- Development Stage ----------
-FROM base AS development
-
 COPY . .
 
-ENV COMPOSER_ALLOW_SUPERUSER=1
+# Install Composer dependencies
 RUN composer install --no-interaction --prefer-dist
-
-RUN chown -R www-data:www-data /var/www
-
-CMD ["php-fpm"]
-
-
-# ---------- Production Stage (optional) ----------
-FROM base AS production
-
-COPY . .
-
-RUN composer install --no-dev --optimize-autoloader
-
-RUN chown -R www-data:www-data /var/www
 
 CMD ["php-fpm"]

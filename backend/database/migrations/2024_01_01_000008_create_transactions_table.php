@@ -45,7 +45,7 @@ return new class extends Migration
             $table->index(['type', 'status']);
         });
         Schema::table('transactions', function (Blueprint $table) {
-    $table->foreign('original_id')
+             $table->foreign('original_id')
           ->references('id')
           ->on('transactions')
           ->nullOnDelete();
