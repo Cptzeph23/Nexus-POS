@@ -35,7 +35,7 @@ return new class extends Migration
             $table->foreign('terminal_id')->references('id')->on('terminals')->onDelete('set null');
             $table->foreign('cashier_id')->references('id')->on('users')->onDelete('restrict');
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('set null');
-            $table->foreign('original_id')->references('id')->on('transactions')->onDelete('set null');
+           
             
             $table->unique(['branch_id', 'receipt_number']);
             $table->index(['branch_id', 'completed_at']);
@@ -44,6 +44,12 @@ return new class extends Migration
             $table->index(['customer_id']);
             $table->index(['type', 'status']);
         });
+        Schema::table('transactions', function (Blueprint $table) {
+    $table->foreign('original_id')
+          ->references('id')
+          ->on('transactions')
+          ->nullOnDelete();
+});
     }
 
     public function down(): void
