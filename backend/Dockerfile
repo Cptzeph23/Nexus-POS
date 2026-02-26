@@ -9,7 +9,8 @@ RUN docker-php-ext-install \
     pdo \
     pdo_pgsql \
     mbstring \
-    zip
+    zip \
+    pcntl
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
@@ -21,7 +22,8 @@ FROM base AS development
 
 COPY . .
 
-RUN composer install
+ENV COMPOSER_ALLOW_SUPERUSER=1
+RUN composer install --no-interaction --prefer-dist
 
 RUN chown -R www-data:www-data /var/www
 
